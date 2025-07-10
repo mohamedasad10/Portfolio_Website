@@ -1,0 +1,624 @@
+<!-- GALLERY PAGE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Gallery | My Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00e676;
+            --secondary-color: #00c853;
+            --bg-color: #121212;
+            --bg-color-lighter: #1e1e1e;
+            --text-color: #ffffff;
+            --text-color-light: #b0b0b0;
+            --border-radius: 10px;
+            --transition: all 0.3s ease;
+            --header-height: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--bg-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            height: var(--header-height);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+        /* Gallery Page Styles */
+        .gallery-page {
+            padding-top: calc(var(--header-height) + 50px);
+            padding-bottom: 100px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-title h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .page-title p {
+            color: var(--text-color-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Event Styles */
+        .event {
+            margin-bottom: 80px;
+        }
+
+        .event-header {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .event-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .event-title {
+            font-size: 2rem;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .event-date {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .event-description {
+            color: var(--text-color-light);
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+
+        /* Gallery Grid Styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 5px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            z-index: 2001;
+            transition: var(--transition);
+        }
+
+        .lightbox-close:hover {
+            color: var(--primary-color);
+            transform: rotate(90deg);
+        }
+
+        .lightbox-prev, .lightbox-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            z-index: 2001;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            transition: var(--transition);
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        .lightbox-prev:hover, .lightbox-next:hover {
+            background-color: var(--primary-color);
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 1rem;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .event-title {
+                font-size: 1.8rem;
+            }
+            
+            .lightbox-prev, .lightbox-next {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .event-title {
+                font-size: 1.5rem;
+            }
+            
+            .page-title h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+            <div class="logo">Gallery</div>
+        </div>
+    </header>
+
+    <!-- Gallery Page -->
+    <section class="gallery-page">
+        <div class="container">
+            <div class="page-title">
+                <h1>Events Gallery</h1>
+                <p>A collection of events, hackathons and volunteering activities I've participated in throughout my journey.</p>
+            </div>
+
+            <!-- QYF Innovation Showcase 2025 -->
+            <div class="event">
+                <div class="event-header">
+                    <h2 class="event-title">QYF Innovation Showcase 2025</h2>
+                    <span class="event-date">May 2025</span>
+                    <p class="event-description"> Attended the Quantify Your Future (QYF) Career Innovation Showcase, a premier 
+                        networking event held in partnership with leading South African banks including Absa, FNB, Standard Bank, 
+                        RMB, FirstRand, and Nedbank.The event offered insights into industry trends, graduate program structures, 
+                        and career development. Actively engaged with recruiters and company representatives to ask questions, explore 
+                        opportunities, and better understand the transition from university to the professional world. I attended a panel 
+                        discussion featuring senior professionals from the participating firms, where they shared their career journeys, 
+                        insights on the industry, and advice on how students can position themselves for success for the graduate program applications.                    </p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-event="unihack" data-caption="Innovation Networking">
+                        <img src="Images/QYF2025.jpeg" alt="Innovation Networking">
+                    </div>
+                    <div class="gallery-item" data-event="unihack" data-caption="Networking">
+                        <img src="Images/QYF2025InnovationShowcase.jpeg" alt="Networking">
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Standard Bank UniHack 2025 -->
+            <div class="event">
+                <div class="event-header">
+                    <h2 class="event-title">Standard Bank UniHack 2025</h2>
+                    <span class="event-date">April 2025</span>
+                    <p class="event-description">
+                        My group - Career Compass - developed a solution to address unemployment in South Africa by helping high school learners 
+                        make informed career choices — using data to highlight oversaturated fields, so they can pursue 
+                        degrees aligned with current market demand and future opportunities.                    </p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-event="unihack" data-caption="Standard Bank UniHack 2025">
+                        <img src="Images/SBUniHack2025.png" alt="Standard Bank Group UniHack 2025">
+                    </div>
+                    <div class="gallery-item" data-event="unihack" data-caption="Career Compass Team">
+                        <img src="Images/UniHackTEAM.jpg" alt="Career Compass Team">
+                    </div>
+                    <div class="gallery-item" data-event="unihack" data-caption="Our mentor(Far Left)">
+                        <img src="Images/UniHack1.jpg" alt="Our mentor">
+                    </div>
+                    <div class="gallery-item" data-event="unihack" data-caption="UniHack in progress...">
+                        <img src="Images/UniHack.jpg" alt="UniHack in progress...">
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Dean's Merit Award Ceremony 2025 -->
+            <div class="event">
+                <div class="event-header">
+                    <h2 class="event-title">Dean's Merit Award Ceremony 2025</h2>
+                    <span class="event-date">April 2025</span>
+                    <p class="event-description">
+                        Received the Dean’s Merit Award for academic excellence in BSc Computer Science, 81.25% — graduating 
+                        Magna Cum Laude. This award recognizes consistent high performance, dedication, and distinction in the 2024 
+                        academic year. Honored among the top students in the faculty at the annual Dean’s Merit Award Ceremony.
+         </p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-event="unihack" data-caption="Dean's Merit Award">
+                        <img src="Images/DeansMeritAward2024.jpeg" alt="DeansMeritAward2024">
+                    </div>     
+                </div>
+            </div>
+
+            <!-- School Outreach Program | WebMax x Enactus -->
+            <div class="event">
+                <div class="event-header">
+                    <h2 class="event-title">School Outreach Program | WebMax x Enactus</h2>
+                    <span class="event-date">September 2024 – Present</span>
+                    <p class="event-description">
+                        Conducted interactive tech outreach at schools, introducing students to computer science, AI, and cybersecurity through engaging presentations and hands-on activities. Led problem-solving workshops using educational games like <i>Tanks</i> by Tangabl, encouraging logical thinking and collaboration.
+                    </p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-event="webmaxenactus" data-caption="The Team at the outreach event">
+                        <img src="Images/OutreachTeam.jpg" alt="Team at the outreach event">
+                    </div>
+                    <div class="gallery-item" data-event="webmaxenactus" data-caption="Students playing Tanks by Tangabl during a workshop">
+                        <img src="Images/SOP.jpg" alt="Students playing Tangabl Tanks">
+                    </div>
+                    <div class="gallery-item" data-event="webmaxenactus" data-caption="">
+                        <img src="Images/OutreachTeam1.jpg" alt="Tech Q&A session with students">
+                    </div>
+                    <div class="gallery-item" data-event="webmaxenactus" data-caption="">
+                        <img src="Images/OutreachGardeniaPrim.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- SA Innovation Summit 2024 -->
+            <div class="event">
+                <div class="event-header">
+                    <h2 class="event-title">SA Innovation Summit 2024</h2>
+                    <span class="event-date">September 2024</span>
+                    <p class="event-description">
+                        Volunteered at the SA Innovation Summit, connecting with tech leaders, startups, and investors. Gained insights into the African innovation landscape, explored pitch battles, and joined workshops on entrepreneurship and future technologies.
+                    </p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-event="sainnovation" data-caption="">
+                        <img src="Images/Sais2024.jpg" alt="SA Innovation Summit">
+                    </div>
+                    <div class="gallery-item" data-event="sainnovation" data-caption="Meta Quest VR experience">
+                        <img src="Images/SaisVR.jpg" alt="Networking at SA Innovation Summit">
+                    </div>
+                    <div class="gallery-item" data-event="sainnovation" data-caption="">
+                        <img src="Images/SaisBuilding.jpg" alt="Panel at SA Innovation Summit">
+                    </div>
+                    <div class="gallery-item" data-event="sainnovation" data-caption="">
+                        <img src="Images/SaisTables.jpg" alt="Panel at SA Innovation Summit">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quantify Your Future Career Innovation Showcase 2024-->
+            <div class="event">
+                <div class="event-header">
+                    <h2 class="event-title">Quantify Your Future Career Innovation Showcase 2024</h2>
+                    <span class="event-date">May 2024</span>
+                    <p class="event-description">
+                        Participated in the Quantify Your Future Career Innovation Showcase in partnership with major banks like Absa, Standard Bank, RMB, FNB, FirstRand, and Nedbank. 
+                    </p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-event="qyfshowcase" data-caption="Career Innovation Showcase">
+                        <img src="Images/QYFEvent.jpg" alt="Booth at Quantify Your Future showcase">
+                    </div>
+                    <div class="gallery-item" data-event="qyfshowcase" data-caption="">
+                        <img src="Images/QYFCard.jpg" alt="Presentation at QYF showcase">
+                    </div>
+                    <div class="gallery-item" data-event="qyfshowcase" data-caption="QYF Networking">
+                        <img src="Images/QYFNetworking.jpg" alt="Panel feedback at QYF showcase">
+                    </div>
+                </div>
+            </div>
+
+            <!-- UWC IT Society | Member Appointments -->
+            <div class="event">
+                <div class="event-header">
+                    <h2 class="event-title">UWC IT Society | Member Appointments</h2>
+                    <span class="event-date">March 2024</span>
+                    <p class="event-description">
+                        Officially appointed into key roles within the UWC IT Society, taking part in strategic planning, technical workshops, and community-building initiatives. Collaborated with peers to shape the society's goals for the year, promote student-led innovation, and organize upcoming tech events and mentorship programs.
+                    </p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-event="uwcitsociety" data-caption="Group photo after the appointment ceremony">
+                        <img src="Images/ITSocietyExecs2024--25.jpg" alt="UWC IT Society Team Photo">
+                    </div>
+                    <div class="gallery-item" data-event="uwcitsociety" data-caption="Newly appointed members">
+                        <img src="Images/ITSocietyExecs2024-25.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- AWS Skills Center Experience -->
+            <div class="event">
+                <div class="event-header">
+                    <h2 class="event-title">AWS Skills Center Experience</h2>
+                    <span class="event-date">November 2023</span>
+                    <p class="event-description">
+                        Completed online courses through the AWS Skills Center, gaining foundational knowledge in cloud computing, security, and architecture.
+                        Later visited the AWS Skills Center in Cape Town
+                    </p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-event="aws" data-caption="Exploring cybersecurity at AWS Skills Center">
+                        <img src="Images/AWSskillsCentre.png" alt="AWS Skills Center ">
+                    </div>
+                </div>
+            </div>
+
+
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-close">&times;</div>
+        <div class="lightbox-prev"><i class="fas fa-chevron-left"></i></div>
+        <div class="lightbox-next"><i class="fas fa-chevron-right"></i></div>
+        <div class="lightbox-content">
+            <img src="/placeholder.svg" alt="" class="lightbox-img">
+            <div class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Lightbox -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = lightbox.querySelector('.lightbox-img');
+            const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+            const lightboxClose = lightbox.querySelector('.lightbox-close');
+            const lightboxPrev = lightbox.querySelector('.lightbox-prev');
+            const lightboxNext = lightbox.querySelector('.lightbox-next');
+            
+            let currentEvent = '';
+            let currentIndex = 0;
+            let currentEventItems = [];
+            
+            // Open lightbox when clicking on a gallery item
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const eventName = this.getAttribute('data-event');
+                    const imgSrc = this.querySelector('img').src;
+                    const caption = this.getAttribute('data-caption');
+                    
+                    // Get all items from the same event
+                    currentEvent = eventName;
+                    currentEventItems = Array.from(document.querySelectorAll(`.gallery-item[data-event="${eventName}"]`));
+                    currentIndex = currentEventItems.indexOf(this);
+                    
+                    // Set lightbox content
+                    lightboxImg.src = imgSrc;
+                    lightboxCaption.textContent = caption;
+                    
+                    // Show lightbox
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                });
+            });
+            
+            // Close lightbox
+            lightboxClose.addEventListener('click', function() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            });
+            
+            // Close lightbox when clicking outside the image
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = ''; // Restore scrolling
+                }
+            });
+            
+            // Navigate to previous image
+            lightboxPrev.addEventListener('click', function() {
+                if (currentEventItems.length <= 1) return;
+                
+                currentIndex = (currentIndex - 1 + currentEventItems.length) % currentEventItems.length;
+                const prevItem = currentEventItems[currentIndex];
+                const imgSrc = prevItem.querySelector('img').src;
+                const caption = prevItem.getAttribute('data-caption');
+                
+                lightboxImg.src = imgSrc;
+                lightboxCaption.textContent = caption;
+            });
+            
+            // Navigate to next image
+            lightboxNext.addEventListener('click', function() {
+                if (currentEventItems.length <= 1) return;
+                
+                currentIndex = (currentIndex + 1) % currentEventItems.length;
+                const nextItem = currentEventItems[currentIndex];
+                const imgSrc = nextItem.querySelector('img').src;
+                const caption = nextItem.getAttribute('data-caption');
+                
+                lightboxImg.src = imgSrc;
+                lightboxCaption.textContent = caption;
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (!lightbox.classList.contains('active')) return;
+                
+                if (e.key === 'Escape') {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = ''; // Restore scrolling
+                } else if (e.key === 'ArrowLeft') {
+                    lightboxPrev.click();
+                } else if (e.key === 'ArrowRight') {
+                    lightboxNext.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

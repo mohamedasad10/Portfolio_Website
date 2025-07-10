@@ -1,0 +1,1730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Computer Science Honours Student</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <span class="circle"></span>
+            <span class="circle"></span>
+            <span class="circle"></span>
+            <span class="circle"></span>
+        </div>
+    </div>
+
+    <!-- Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <span class="highlight"></span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#extracurricular">Extracurricular Activities</a></li>
+                    <li><a href="#honors">Awards</a></li>
+                    <li><a href="gallery.html" target="_blank">Gallery</a></li>
+                <!--<li><a href="#contact">Contact</a></li>          -->
+                </ul>
+                <div class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate-fade-in">
+                    <span class="greeting"></span>
+                    <span class="title">Mohamed Asad Bandarkar</span>
+                    <span class="highlight">BSc Honours Computer Science</span>
+                </h1>
+                <div class="typing-container animate-fade-in">
+                    <p>Passionate about <span class="typing"></span></p>
+                </div>
+                <div class="hero-buttons animate-fade-in">
+                    <!--GALLERY-->
+                    <a href="gallery.html" class="btn primary-btn" target="_blank">View Gallery</a>
+                </div>
+            </div>
+            
+                        <div class="about-image reveal-left">
+                            <div class="image-container">
+                                <img src="Images/ProfilePic.jpeg" alt="Profile Picture">
+                                <div class="image-outline"></div>
+                            </div>
+                            <div class="social-icons">
+                                <a href="https://github.com/mohamedasad10" class="social-icon" target="_blank"><i class="fab fa-github" ></i></a>
+                                <a href="https://www.linkedin.com/in/mabandarkar/" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <a href="#about">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section-padding">
+      <div class="container">
+          <div class="section-header">
+              <h2 class="section-title">About Me</h2>
+              <div class="section-line"></div>
+          </div>
+          <div class="about-content">
+              
+              <div class="about-text reveal-right">
+                  
+                  <p>
+                      I am immersed in the dynamic world of technology, fueled by a profound enthusiasm for Software Engineering. As a Computer Science Honours student, I am driven by problem-solving, full-stack development, and the desire to turn ideas into reality.
+                  </p>
+                  <p>
+                      My goal is to innovate and contribute meaningfully to the industry, staying ahead of the latest advancements and best practices. I thrive in dynamic environments, tackling complex challenges, and am eager to collaborate with like-minded professionals to drive impactful projects and solutions.
+                  </p>
+                  <div class="about-details">
+                      <div class="detail">
+                          <i class="fas fa-map-marker-alt"></i>
+                          <span>Cape Town, South Africa</span>
+                      </div>
+                      
+                      <div class="detail">
+                          <i class="fas fa-envelope"></i>
+                          <span>mohamedasad11914@gmail.com</span>
+                      </div>  
+                  </div> 
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Experience Section -->
+  <style>
+    /* Horizontal Experience Timeline Styles */
+    .experience-timeline {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        position: relative;
+        margin-top: 50px;
+    }
+    
+    .timeline-item {
+        flex: 1;
+        min-width: 300px;
+        max-width: calc(50% - 15px);
+        position: relative;
+        background-color: var(--bg-color-lighter);
+        border-radius: var(--border-radius);
+        padding: 25px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column; /* Stack children vertically */
+    }
+    
+    .timeline-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Date section above the card */
+    .timeline-date {
+        position: absolute;
+        top: -60px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .date-content {
+        background-color: var(--bg-color-lighter);
+        display: inline-block;
+        padding: 8px 15px;
+        border-radius: var(--border-radius);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .date-range {
+        color: var(--primary-color);
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 2px;
+    }
+    
+    .date-duration {
+        color: var(--text-color-light);
+        font-size: 0.8rem;
+    }
+    
+    /* Timeline connecting line */
+    .experience-timeline::before {
+        content: '';
+        position: absolute;
+        top: -30px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--primary-color);
+        opacity: 0.3;
+    }
+    
+    .timeline-date::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 10px;
+        background-color: var(--primary-color);
+    }
+    
+    .timeline-date::after {
+        content: '';
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+    }
+    
+    /* Experience content */
+    .experience-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 20px;
+        width: 100%; /* Ensure header takes full width */
+    }
+    
+    .company-logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        flex-shrink: 0;
+    }
+    
+    .company-logo img {
+        width: 85%;
+        height: 85%;
+        object-fit: contain;
+    }
+    
+    .experience-title {
+        flex-grow: 1;
+    }
+    
+    .experience-title h3 {
+        font-size: 1.3rem;
+        color: var(--primary-color);
+        margin-bottom: 5px;
+    }
+    
+    .experience-title h4 {
+        font-size: 1rem;
+        color: var(--text-color);
+        margin-bottom: 5px;
+        font-weight: 500;
+    }
+    
+    .experience-location {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: var(--text-color-light);
+        font-size: 0.85rem;
+    }
+    
+    .experience-location i {
+        color: var(--primary-color);
+        font-size: 0.9rem;
+    }
+    
+    /* Fixed experience description positioning - now below header */
+    .experience-description {
+        color: var(--text-color-light);
+        width: 100%; /* Take full width */
+        padding-left: 0; /* No left padding */
+        margin-top: 0; /* No negative margin */
+    }
+    
+    .experience-description ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    
+    .experience-description li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 10px;
+        line-height: 1.6;
+    }
+    
+    .experience-description li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 10px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+    }
+    
+    /* Responsive adjustments */
+    @media screen and (max-width: 992px) {
+        .timeline-item {
+            max-width: 100%;
+            margin-top: 70px;
+        }
+        
+        .timeline-date {
+            top: -50px;
+        }
+        
+        .experience-timeline::before {
+            display: none;
+        }
+    }
+    </style>
+    
+    <!-- Experience Section -->
+    <section id="experience" class="experience section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experience</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="experience-timeline">
+                <!-- Mentor at UWC IT Society -->
+                <div class="timeline-item reveal-bottom">
+                    <div class="timeline-date">
+                        <div class="date-content">
+                            <div class="date-range">Jul 2024 - Apr 2025</div>
+                            <div class="date-duration">10 months</div>
+                        </div>
+                    </div>
+                    <div class="experience-header">
+                        <div class="company-logo">
+                            <img src="Images/UWCITSocietyLogo.jpg" alt="UWC Logo">
+                        </div>
+                        <div class="experience-title">
+                            <h3>Mentor</h3>
+                            <h4>UWC IT Society</h4>
+                            <div class="experience-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Western Cape, South Africa (Hybrid)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Guide students in IT, providing mentorship and academic support.</li>
+                            <li>Explain IT concepts, address queries, and foster a collaborative learning environment.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Secretary-General at UWC IT Society -->
+                <div class="timeline-item reveal-bottom">
+                    <div class="timeline-date">
+                        <div class="date-content">
+                            <div class="date-range">Apr 2024 - Mar 2025</div>
+                            <div class="date-duration">1 year</div>
+                        </div>
+                    </div>
+                    <div class="experience-header">
+                        <div class="company-logo">
+                            <img src="Images/UWCITSocietyLogo.jpg" alt="UWC Logo">
+                        </div>
+                        <div class="experience-title">
+                            <h3>Secretary - General</h3>
+                            <h4>UWC IT Society</h4>
+                            <div class="experience-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Western Cape, South Africa (On-site)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Oversee administrative operations and manage society records.</li>
+                            <li>Coordinate schedules, meetings, and facilitate communication between stakeholders.</li>
+                            <li>Support strategic planning and decision-making.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Computer Science Tutor | Department of Computer Science, UWC -->
+                <div class="timeline-item reveal-bottom">
+                    <div class="timeline-date">
+                        <div class="date-content">
+                            <div class="date-range">Feb 2024 - Mar 2024</div>
+                            <div class="date-duration">2 months</div>
+                        </div>
+                    </div>
+                    <div class="experience-header">
+                        <div class="company-logo">
+                            <img src="Images/UWCLogo.png" alt="UWC Logo">
+                        </div>
+                        <div class="experience-title">
+                            <h3>Computer Science Tutor</h3>
+                            <h4>Department of Computer Science, UWC</h4>
+                            <div class="experience-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Western Cape, South Africa · On-site
+                            </div>
+                        </div>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Provided technical guidance to 75+ students weekly, improving class performance metrics.</li>
+                            <li>Delivered tutorials on Data Structures, Algorithms, Complexity Theory, and Computer Architecture.</li>
+                            <li>Assessed assignments, invigilated tests, and supported administrative tasks.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                
+                <!-- ABSA iNkanyezi IT, Cyber Security and Audit Academy -->
+                <div class="timeline-item reveal-bottom">
+                    <div class="timeline-date">
+                        <div class="date-content">
+                            <div class="date-range">Mar 2024 - Sept 2024</div>
+                            <div class="date-duration">7 months</div>
+                        </div>
+                    </div>
+                    <div class="experience-header">
+                        <div class="company-logo">
+                            <img src="Images/absa.png" alt="ABSA Logo">
+                        </div>
+                        <div class="experience-title">
+                            <h3>ABSA iNkanyezi IT, Cyber Security and Audit Academy</h3>
+                            <h4>ABSA Group</h4>
+                            <div class="experience-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                South Africa (Remote + On-site)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Developed expertise in risk management, technology controls, data analytics, and cybersecurity fundamentals.</li>
+                            <li>Gained soft skills including conflict resolution and effective communication.</li>
+                            <li>Applied data analytics solutions and technology controls aligned with financial industry standards.</li>
+                            <li>Learned from industry experts, gaining practical insights for growth in IT, cybersecurity, and auditing.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- QuantifyYourFuture Internship | SAGEA -->
+                <div class="timeline-item reveal-bottom">
+                    <div class="timeline-date">
+                        <div class="date-content">
+                            <div class="date-range">Jan 2024 - Feb 2024</div>
+                            <div class="date-duration">2 months</div>
+                        </div>
+                    </div>
+                    <div class="experience-header">
+                        <div class="company-logo">
+                            <img src="Images/south_african_graduate_employers_association_logo.jpg" alt="SAGEA Logo">
+                        </div>
+                        <div class="experience-title">
+                            <h3>QuantifyYourFuture Intern</h3>
+                            <h4>South African Graduate Employers Association (SAGEA)</h4>
+                            <div class="experience-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Remote (South Africa)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Completed an internship as part of the 'QuantifyYourFuture' program in partnership with Absa, FirstRand, FNB, and Nedbank.</li>
+                            <li>Gained hands-on experience in data exploration, interpretation, modelling, and visualization, while developing key skills in critical thinking, creativity, collaboration, and communication through team-based projects.</li>
+                            <li>Presented data-driven solutions to senior management, demonstrating technical communication and analytical problem-solving.</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!-- Computer Technician | Newlook Cosmetics -->
+                <div class="timeline-item reveal-bottom">
+                    <div class="timeline-date">
+                        <div class="date-content">
+                            <div class="date-range">Dec 2021 - Dec 2023</div>
+                            <div class="date-duration">2 years</div>
+                        </div>
+                    </div>
+                    <div class="experience-header">
+                        <div class="company-logo">
+                            <img src="Images/NLC.jpg" alt="Newlook Cosmetics Logo">
+                        </div>
+                        <div class="experience-title">
+                            <h3>Computer Technician</h3>
+                            <h4>Newlook Cosmetics</h4>
+                            <div class="experience-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Western Cape, South Africa
+                            </div>
+                        </div>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Installed and configured operating systems, networks, and security software for improved IT infrastructure performance.</li>
+                            <li>Conducted system checks, replaced outdated components, and resolved technical issues.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+<!-- Education Section -->
+<section id="education" class="education section-padding">
+  <div class="container">
+      <div class="section-header">
+          <h2 class="section-title">Education</h2>
+          <div class="section-line"></div>
+      </div>
+      <div class="education-cards">
+          <!-- BSc Honours -->
+          <div class="education-card reveal-bottom">
+              <div class="education-icon">
+                  <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="education-content">
+                  <h3>Bachelor of Science Honours Computer Science</h3>
+                  <h4>University of the Western Cape</h4>
+                  <p class="date">Feb 2025 - Nov 2025</p>
+                  <p>Advanced studies in Computer Science with focus on research and specialized topics.</p>
+              </div>
+          </div>
+
+          <!-- Bachelor of Science -->
+          <div class="education-card reveal-bottom">
+              <div class="education-icon">
+                  <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="education-content">
+                  <h3>Bachelor of Science, Computer Science and Information Systems</h3>
+                  <h4>University of the Western Cape</h4>
+                  <p class="date">Feb 2022 - Nov 2024</p>
+                  <p class="grade">Grade: Magna Cum Laude</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- PROJECTS Section -->
+<style>
+    /* Projects Section Styles */
+    .projects {
+        background-color: var(--bg-color);
+        padding: 100px 0;
+    }
+    
+    .projects-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+    }
+    
+    .project-card {
+        background-color: var(--bg-color-lighter);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        cursor: pointer;
+    }
+    
+    .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .project-image {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+    }
+    
+    .project-card:hover .project-image img {
+        transform: scale(1.1);
+    }
+    
+    .project-content {
+        padding: 25px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .project-header {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 15px;
+        gap: 15px;
+    }
+    
+    .project-logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        flex-shrink: 0;
+    }
+    
+    .project-logo img {
+        width: 85%;
+        height: 85%;
+        object-fit: contain;
+    }
+    
+    .project-title {
+        flex-grow: 1;
+    }
+    
+    .project-title h3 {
+        font-size: 1.3rem;
+        color: var(--primary-color);
+        margin-bottom: 5px;
+    }
+    
+    .project-title .project-status {
+        display: inline-block;
+        padding: 3px 8px;
+        background-color: rgba(0, 230, 118, 0.1);
+        color: var(--primary-color);
+        border-radius: 20px;
+        font-size: 0.8rem;
+        margin-bottom: 5px;
+    }
+    
+    .project-description {
+        color: var(--text-color-light);
+        margin-bottom: 20px;
+        line-height: 1.6;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: auto;
+    }
+    
+    .project-tag {
+        background-color: rgba(0, 230, 118, 0.1);
+        color: var(--primary-color);
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+    }
+    
+    /* Project Modal Styles */
+    .project-modal-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    
+    .project-modal-container.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .project-modal {
+        background-color: var(--bg-color-lighter);
+        width: 90%;
+        max-width: 1000px;
+        max-height: 90vh;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        position: relative;
+        transform: scale(0.8);
+        transition: transform 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .project-modal-container.active .project-modal {
+        transform: scale(1);
+    }
+    
+    .project-modal-close {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 30px;
+        color: var(--text-color);
+        cursor: pointer;
+        z-index: 10;
+        transition: var(--transition);
+    }
+    
+    .project-modal-close:hover {
+        color: var(--primary-color);
+        transform: rotate(90deg);
+    }
+    
+    .project-modal-content {
+        display: flex;
+        flex-direction: column;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    /* Project Carousel Styles */
+    .project-modal-carousel {
+        width: 100%;
+        position: relative;
+        background-color: var(--bg-color);
+    }
+    
+    .project-carousel-container {
+        width: 100%;
+        height: 40vh;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .project-carousel-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s ease;
+    }
+    
+    .project-carousel-slide.active {
+        opacity: 1;
+    }
+    
+    .project-carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background-color: var(--bg-color);
+    }
+    
+    .project-carousel-indicators {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+    }
+    
+    .project-carousel-indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: var(--transition);
+    }
+    
+    .project-carousel-indicator.active {
+        background-color: var(--primary-color);
+    }
+    
+    /* Project Modal Info Styles */
+    .project-modal-info {
+        padding: 30px;
+    }
+    
+    .project-modal-title {
+        font-size: 1.8rem;
+        color: var(--primary-color);
+        margin-bottom: 5px;
+    }
+    
+    .project-modal-subtitle {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+    
+    .project-modal-status {
+        display: inline-block;
+        padding: 3px 10px;
+        background-color: rgba(0, 230, 118, 0.1);
+        color: var(--primary-color);
+        border-radius: 20px;
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+    
+    .project-modal-description {
+        color: var(--text-color-light);
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+    
+    .project-modal-description p {
+        margin-bottom: 15px;
+    }
+    
+    .project-modal-description ul {
+        margin-bottom: 15px;
+        padding-left: 20px;
+    }
+    
+    .project-modal-description ul li {
+        margin-bottom: 8px;
+    }
+    
+    .project-modal-links {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .project-modal-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 15px;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        border-radius: var(--border-radius);
+        transition: var(--transition);
+        text-decoration: none;
+    }
+    
+    .project-modal-link:hover {
+        background-color: var(--primary-color);
+        color: var(--bg-color);
+    }
+    
+    .project-modal-link i {
+        font-size: 1.2rem;
+    }
+    
+    .project-modal-technologies {
+        margin-top: 20px;
+    }
+    
+    .project-modal-technologies h4 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        color: var(--primary-color);
+    }
+    
+    .project-modal-tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .project-modal-tech-tag {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+    }
+    
+    /* Make modal responsive */
+    @media screen and (min-width: 768px) {
+        .project-modal-content {
+            flex-direction: row;
+        }
+        
+        .project-modal-carousel, .project-modal-info {
+            width: 50%;
+        }
+        
+        .project-carousel-container {
+            height: 100%;
+            min-height: 400px;
+        }
+    }
+    
+    @media screen and (max-width: 767px) {
+        .project-carousel-container {
+            height: 40vh;
+        }
+        
+        .projects-cards {
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+    }
+    </style>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="projects section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Projects</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="projects-cards">
+                <!-- Crossy Road -->
+                <div class="project-card reveal-bottom" data-project="crossy-road-clone">
+                    <div class="project-image">
+                        <img src="Images/CrossyRoad.png" alt="Crossy Road Gameplay">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-logo">
+                                <img src="Images/CrossyGame.png" alt="Crossy Road Logo">
+                            </div>
+                            <div class="project-title">
+                                <h3>Crossy Road</h3>
+                                <span class="project-status">Public</span>
+                            </div>
+                        </div>
+                        <div class="project-description">
+                            Crossy Road 🐥 | A Unity 3D arcade game inspired by Crossy Road. Hop across roads, dodge cars, and try not to get squished! Includes level transitions, smooth jumps and particle effects.
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Unity</span>
+                            <span class="project-tag">C#</span>
+                            <span class="project-tag">Game Design</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Fintion Banking -->
+                <div class="project-card reveal-bottom" data-project="fintion-banking">
+                    <div class="project-image">
+                        <img src="Images/FintionHomePage.png" alt="Fintion Banking App">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-logo">
+                                <img src="Images/FintionLogo.png" alt="Fintion Logo">
+                            </div>
+                            <div class="project-title">
+                                <h3>Fintion Banking</h3>
+                                <span class="project-status">Public</span>
+                            </div>
+                        </div>
+                        <div class="project-description">
+                            Fintion Banking App 💳 | A full-stack banking app with secure transactions and account management. Features: Account creation & management, Deposits, withdrawals, and fund transfers.
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">PHP</span>
+                            <span class="project-tag">MySQL</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Immersive Technologies -->
+                <div class="project-card reveal-bottom" data-project="immersive-tech">
+                    <div class="project-image">
+                        <img src="Images/UnityRendering.png" alt="Immersive Technologies">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-logo">
+                                <img src="Images/UnityRendering.png" alt="Immersive Tech Logo">
+                            </div>
+                            <div class="project-title">
+                                <h3>Immersive Technologies</h3>
+                                <span class="project-status">Public</span>
+                            </div>
+                        </div>
+                        <div class="project-description">
+                            Portfolio for Virtual Reality(VR)🕶️and Augmented Reality(AR). Showcasing immersive experiences and interactive applications.
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Unity</span>
+                            <span class="project-tag">AR</span>
+                            <span class="project-tag">VR</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Feedem Now -->
+                <div class="project-card reveal-bottom" data-project="feedem-now">
+                    <div class="project-image">
+                        <img src="Images/FeedemNowHomePage.png" alt="Feedem Now">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-logo">
+                                <img src="Images/feedemnow-logo-2.png" alt="Feedem Now Logo">
+                            </div>
+                            <div class="project-title">
+                                <h3>Feedem Now</h3>
+                                <span class="project-status">Public</span>
+                            </div>
+                        </div>
+                        <div class="project-description">
+                            Feedem Now is a web-based food ordering platform designed specifically for students🍕🍔. The app helps students save time by allowing them to pre-order meals, avoiding long lines and unnecessary delays.
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">PHP</span>
+                            <span class="project-tag">MySQL</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Traffic Lights Simulator -->
+                <div class="project-card reveal-bottom" data-project="traffic-lights">
+                    <div class="project-image">
+                        <img src="Images/RaspiBackground.jpg" alt="Traffic Lights Simulator">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-logo">
+                                <img src="Images/RasPi.jpg" alt="Raspberry Pi Logo">
+                            </div>
+                            <div class="project-title">
+                                <h3>Traffic Lights Simulator</h3>
+                                <span class="project-status">Public</span>
+                            </div>
+                        </div>
+                        <div class="project-description">
+                            Practical implementation of traffic light control🚗🚦 using a Raspberry Pi, integrating networking concepts to simulate real-world scenarios. Explore how traffic light operations🚥 can be coordinated.
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Raspberry Pi</span>
+                            <span class="project-tag">IoT</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- SmartCityAR -->
+                <div class="project-card reveal-bottom" data-project="SmartCityAR">
+                    <div class="project-image">
+                        <img src="Images/SmartCityAR.png" alt="SmartCityAR">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-logo">
+                                <img src="Images/SmartCityAR.png" alt="SmartCityAR Logo">
+                            </div>
+                            <div class="project-title">
+                                <h3>SmartCity AR</h3>
+                                <span class="project-status">Honours Project IN PROGRESS</span>
+                            </div>
+                        </div>
+                        <div class="project-description">
+                            Developing an AR application using Unity and AR Foundation to simulate and compare sustainable 
+                            vs. unsustainable urban development scenarios. The project focuses on Cape Town’s Foreshore Freeway 
+                            Precinct, enabling interactive visualization of transport infrastructure, land use, and pedestrian 
+                            flow. Key features include layered infrastructure toggles, low-poly 3D models for performance optimization, 
+                            and UI/UX tailored for educational and planning stakeholders, being developed by following the Software 
+                            Development Life Cycle (SDLC). </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Unity</span>
+                            <span class="project-tag">3DS MAX</span>
+                            <span class="project-tag">Blender</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Project Modal Container  -->
+    <div class="project-modal-container" id="project-modal">
+        <div class="project-modal">
+            <div class="project-modal-close">&times;</div>
+            <div class="project-modal-content">
+                <div class="project-modal-carousel">
+                    <div class="project-carousel-container">
+                        <!-- Images will be dynamically inserted here -->
+                    </div>
+                    <div class="project-carousel-indicators">
+                        <!-- Indicators will be dynamically inserted here -->
+                    </div>
+                </div>
+                <div class="project-modal-info">
+                    <h2 class="project-modal-title">Project Title</h2>
+                    <div class="project-modal-status">Public</div>
+                    <div class="project-modal-links">
+                        <a href="#" class="project-modal-link github-link" target="_blank">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="#" class="project-modal-link demo-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                    <div class="project-modal-description">
+                        <!-- Description will be dynamically inserted here -->
+                    </div>
+                    <div class="project-modal-technologies">
+                        <h4>Technologies Used</h4>
+                        <div class="project-modal-tech-tags">
+                            <!-- Tech tags will be dynamically inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+<!-- Skills Section -->
+<section id="skills" class="skills section-padding">
+  <div class="container">
+      <div class="section-header">
+          <h2 class="section-title">Skills & Technologies</h2>
+          <div class="section-line"></div>
+      </div>
+            <style>
+                /* Skills Icons Styles */
+                .skills-icons {
+                    margin-top: 40px;
+                }
+                
+                .icon-category {
+                    margin-bottom: 40px;
+                }
+                
+                .icon-category h4 {
+                    font-size: 1.3rem;
+                    color: var(--primary-color);
+                    margin-bottom: 20px;
+                    text-align: left;
+                }
+                
+                .icon-container {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 25px;
+                    justify-content: flex-start;
+                }
+                
+                .skill-icon {
+                    transition: var(--transition);
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    width: 80px;
+                }
+                
+                .skill-icon img {
+                    height: 60px;
+                    width: 60px;
+                    margin-bottom: 8px;
+                    transition: transform 0.3s ease;
+                }
+                
+                .skill-icon span {
+                    font-size: 0.8rem;
+                    color: var(--text-color-light);
+                }
+                
+                .skill-icon:hover img {
+                    transform: translateY(-5px);
+                }
+                
+                .skill-icon:hover span {
+                    color: var(--primary-color);
+                }
+                
+                /* Responsive adjustments */
+                @media screen and (max-width: 768px) {
+                    .icon-container {
+                        justify-content: center;
+                    }
+                    
+                    .icon-category h4 {
+                        text-align: center;
+                    }
+                }
+                </style>
+                
+                <div class="skills-icons">
+                    <div class="icon-category">
+                        <h4>Programming Languages</h4>
+                        <div class="icon-container">
+                            <a href="https://www.java.com/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+                                <span>Java</span>
+                            </a>
+                            <a href="https://www.python.org/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                                <span>Python</span>
+                            </a>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                                <span>JavaScript</span>
+                            </a>
+                            <a href="https://www.php.net/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
+                                <span>PHP</span>
+                            </a>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                                <span>HTML5</span>
+                            </a>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+                                <span>CSS3</span>
+                            </a>
+                            <a href="https://www.arm.com/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="ARM Assembly">
+                                <span>ARM Assembly</span>
+                            </a>
+                            <a href="https://www.mysql.com/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL">
+                                <span>SQL</span>
+                            </a>
+                        </div>
+                    </div>
+                
+                    <div class="icon-category">
+                        <h4>Web Development</h4>
+                        <div class="icon-container">
+                            <a href="https://nodejs.org/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+                                <span>Node.js</span>
+                            </a>
+                            <a href="https://developer.chrome.com/docs/devtools/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg" alt="Chrome DevTools">
+                                <span>Chrome DevTools</span>
+                            </a>
+                            <a href="https://www.mongodb.com/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+                                <span>MongoDB</span>
+                            </a>
+                            <a href="https://www.mysql.com/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+                                <span>MySQL</span>
+                            </a>
+                            <a href="https://www.mysql.com/products/workbench/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" alt="MySQL Workbench">
+                                <span>MySQL Workbench</span>
+                            </a>
+                            <a href="https://www.phpmyadmin.net/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-plain.svg" alt="phpMyAdmin">
+                                <span>phpMyAdmin</span>
+                            </a>
+                            <a href="https://www.apachefriends.org/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" alt="XAMPP">
+                                <span>XAMPP</span>
+                            </a>
+                        </div>
+                    </div>
+                
+                    <div class="icon-category">
+                        <h4>Tools & Platforms</h4>
+                        <div class="icon-container">
+                            <a href="https://www.linux.org/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
+                                <span>Linux</span>
+                            </a>
+                            <a href="https://ubuntu.com/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" alt="Ubuntu">
+                                <span>Ubuntu</span>
+                            </a>
+                            <a href="https://git-scm.com/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+                                <span>Git</span>
+                            </a>
+                            <a href="https://github.com/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://www.ssh.com/academy/ssh" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ssh/ssh-original.svg" alt="SSH">
+                                <span>SSH</span>
+                            </a>
+                            <a href="https://learn.microsoft.com/en-us/windows/wsl/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" alt="WSL">
+                                <span>WSL</span>
+                            </a>
+                            <a href="https://visualstudio.microsoft.com/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" alt="Visual Studio">
+                                <span>Visual Studio</span>
+                            </a>
+                            <a href="https://jupyter.org/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original-wordmark.svg" alt="Jupyter">
+                                <span>Jupyter</span>
+                            </a>
+                        </div>
+                    </div>
+                
+                    <div class="icon-category">
+                        <h4>Creative & Design</h4>
+                        <div class="icon-container">
+                            <a href="https://unity.com/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity">
+                                <span>Unity</span>
+                            </a>
+                            <a href="https://www.autodesk.com/products/3ds-max/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/autodesk/autodesk-original.svg" alt="Autodesk" style="height: 60px;">
+                                <span>3ds Max</span>
+                            </a>
+                            <a href="https://www.blender.org/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg" alt="3D Modeling">
+                                <span>3D Modeling</span>
+                            </a>
+                            <a href="https://www.adobe.com/products/photoshop.html" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Photoshop">
+                                <span>Photoshop</span>
+                            </a>
+                            <a href="https://www.photopea.com/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-line.svg" alt="Photopea">
+                                <span>Photopea</span>
+                            </a>
+
+                            <a href="https://developers.google.com/ar" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="AR">
+                                <span>AR</span>
+                            </a>
+                            <a href="https://www.oculus.com/developers/" target="_blank" class="skill-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="VR">
+                                <span>VR</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>  
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- Extracurricular Activities Section -->
+<section id="extracurricular" class="extracurricular section-padding">
+  <div class="container">
+      <div class="section-header">
+          <h2 class="section-title">Extracurricular Activities</h2>
+          <div class="section-line"></div>
+      </div>
+      <div class="extracurricular-cards">
+          <!-- Standard Bank UniHack -->
+          <div class="extracurricular-card reveal-bottom">
+              <div class="extracurricular-image">
+                <img src="Images/SBUniHack2025.png" alt="Standard Bank UniHack Event" style="width: 100%; height: auto;">
+
+              </div>
+              <div class="extracurricular-content">
+                  <div class="extracurricular-header">
+                      <div class="extracurricular-logo">
+                          <img src="Images/Standard_Bank_of_South_Africa_logo.png" alt="Standard Bank Logo">
+                      </div>
+                      <div class="extracurricular-title">
+                          <h3>Standard Bank UniHack 2025</h3>
+                          <h4>Standard Bank</h4>
+                      </div>
+                  </div>
+                  <div class="extracurricular-date">2025</div>
+                  <ul>
+                      <li>Collaborated in a team to develop a real-time career guidance platform addressing youth unemployment.</li>
+                      <li>Conducted market research, designed the solution, and presented a final pitch to industry professionals.</li>
+                  </ul>
+                  <div class="extracurricular-tags">
+                      <span class="extracurricular-tag">Read More</span>
+                  </div>
+              </div>
+          </div>
+
+          <!-- SANReN Cyber Security Challenge -->
+          <div class="extracurricular-card reveal-bottom">
+              <div class="extracurricular-image">
+                  <img src="Images/sanrencsc.png" alt="SANReN Cyber Security Challenge" style="width: 100%; height: auto;">
+              </div>
+              <div class="extracurricular-content">
+                  <div class="extracurricular-header">
+                      <div class="extracurricular-logo">
+                          <img src="Images/sanrencsc.png" alt="SANReN Logo">
+                      </div>
+                      <div class="extracurricular-title">
+                          <h3>SANReN Cyber Security Challenge 2024</h3>
+                          <h4>SANReN</h4>
+                      </div>
+                  </div>
+                  <div class="extracurricular-date">2024</div>
+                  <ul>
+                      <li>Competed in Capture the Flag (CTF) challenges, solving real-world cybersecurity problems through cryptography, forensics, web exploitation, and reverse engineering.</li>
+                  </ul>
+                  <div class="extracurricular-tags">
+                      <span class="extracurricular-tag">Read More</span>
+                  </div>
+              </div>
+          </div>
+
+          <!-- School Outreach Program WEBMAX -->
+          <div class="extracurricular-card reveal-bottom">
+              <div class="extracurricular-image">
+                  <img src="Images/webmax.jpg" alt="School Outreach Program" >
+              </div>
+              <div class="extracurricular-content">
+                  <div class="extracurricular-header">
+                      <div class="extracurricular-logo">
+                          <img src="Images/webmax.jpg" alt="WebMax Logo">
+                      </div>
+                      <div class="extracurricular-title">
+                          <h3>School Outreach Program</h3>
+                          <h4>WebMax x Enactus</h4>
+                      </div>
+                  </div>
+                  <div class="extracurricular-date">Sept 2024 - Present</div>
+                  <ul>
+                      <li>Conducted interactive tech outreach at schools, introducing students to computer science, AI, and cybersecurity through engaging presentations and hands-on activities.</li>
+                      <li>Led problem-solving workshops using educational games like Tanks by Tangabl, encouraging logical thinking.</li>
+                  </ul>
+                  <div class="extracurricular-tags">
+                      <span class="extracurricular-tag">Read More</span>
+                  </div>
+              </div>
+          </div>
+
+          <!-- SAIS Volunteer -->
+          <div class="extracurricular-card reveal-bottom">
+              <div class="extracurricular-image">
+                  <img src="Images/the_sa_innovation_summit_logo.jpg" alt="SAIS Event">
+              </div>
+              <div class="extracurricular-content">
+                  <div class="extracurricular-header">
+                      <div class="extracurricular-logo">
+                          <img src="Images/the_sa_innovation_summit_logo.jpg" alt="SAIS Logo">
+                      </div>
+                      <div class="extracurricular-title">
+                          <h3>SAIS '2024 Volunteer</h3>
+                          <h4>South African Innovation Summit</h4>
+                      </div>
+                  </div>
+                  <div class="extracurricular-date">Aug 2024 - Sept 2024</div>
+                  <ul>
+                      <li>Supported technical operations for South Africa's leading innovation conference</li>
+                      <li>Assisted with workshop facilitation and technology demonstrations</li>
+                      <li>Engaged with industry professionals and startups in the technology sector</li>
+                  </ul>
+                  <div class="extracurricular-tags">
+                      <span class="extracurricular-tag">Read More</span>
+                  </div>
+              </div>
+          </div>
+
+          <!-- UWC IT Society Mentor -->
+          <div class="extracurricular-card reveal-bottom">
+              <div class="extracurricular-image">
+                  <img src="Images/UWCITSocietyLogo.jpg" alt="UWC IT Society Event">
+              </div>
+              <div class="extracurricular-content">
+                  <div class="extracurricular-header">
+                      <div class="extracurricular-logo">
+                          <img src="Images/UWCITSocietyLogo.jpg" alt="UWC Logo">
+                      </div>
+                      <div class="extracurricular-title">
+                          <h3>Mentor</h3>
+                          <h4>UWC IT Society</h4>
+                      </div>
+                  </div>
+                  <div class="extracurricular-date">July 2024 - Apr 2025</div>
+                  <ul>
+                      <li>Guide students in IT, providing mentorship and academic support.</li>
+                      <li>Explain IT concepts, address queries, and foster a collaborative learning environment.</li>
+                  </ul>
+                  <div class="extracurricular-tags">
+                      <span class="extracurricular-tag">Read More</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- Honors & Awards Section -->
+<section id="honors" class="honors section-padding">
+  <div class="container">
+      <div class="section-header">
+          <h2 class="section-title">Honors & Awards</h2>
+          <div class="section-line"></div>
+      </div>
+      <div class="honors-cards">
+          <!-- Dean's Merit List 2024 -->
+          <div class="honor-card reveal-bottom">
+              <div class="honor-header">
+                  <div class="honor-logo">
+                      <img src="Images/UWCLogo.png" alt="University of the Western Cape Logo">
+                  </div>
+                  <div class="honor-title">
+                      <h3>Dean's Merit List 2024</h3>
+                      <div class="honor-issuer">University of the Western Cape</div>
+                      <div class="honor-date">Issued Apr 2025</div>
+                  </div>
+              </div>
+              <div class="honor-content">
+                  <p>Associated with University of the Western Cape</p>
+              </div>
+          </div>
+
+          <!-- Golden Key International Honor Society -->
+          <div class="honor-card reveal-bottom">
+              <div class="honor-header">
+                  <div class="honor-logo">
+                      <img src="Images/GKSA.jpg" alt="Golden Key International Logo">
+                  </div>
+                  <div class="honor-title">
+                      <h3>Golden Key International Honor Society</h3>
+                      <div class="honor-issuer">Issued by Golden Key International</div>
+                      <div class="honor-date">Oct 2023</div>
+                  </div>
+              </div>
+              <div class="honor-content">
+                  <p>Associated with University of the Western Cape</p>
+                  <p>An honor bestowed upon students who achieved among the Top 15% in their respective fields of study.</p>
+              </div>
+          </div>
+
+          <!-- First year Entrance Merit Award -->
+          <div class="honor-card reveal-bottom">
+              <div class="honor-header">
+                  <div class="honor-logo">
+                      <img src="Images/UWCLogo.png" alt="University of the Western Cape Logo">
+                  </div>
+                  <div class="honor-title">
+                      <h3>First year Entrance Merit Award</h3>
+                      <div class="honor-issuer">Issued by University of the Western Cape</div>
+                      <div class="honor-date">Sep 2022</div>
+                  </div>
+              </div>
+              <div class="honor-content">
+                  <p>Associated with University of the Western Cape</p>
+                  <p>I was awarded a partial bursary as a result of my Matric results.</p>
+              </div>
+          </div>
+
+          <!-- Player of the Year U16 -->
+          <div class="honor-card reveal-bottom">
+              <div class="honor-header">
+                  <div class="honor-logo">
+                      <img src="Images/TUFC.png" alt="Thornhill United Football Club Logo">
+                  </div>
+                  <div class="honor-title">
+                      <h3>Player of the Year U16</h3>
+                      <div class="honor-issuer">Issued by Thornhill United Football Club</div>
+                      <div class="honor-date">Oct 2018</div>
+                  </div>
+              </div>
+              <div class="honor-content">
+                  <p>I was awarded with the "Player of the Year" award by Thornhill United for the Under 16 category.</p>
+              </div>
+          </div>
+
+          <!-- Player of the Year U14 -->
+          <div class="honor-card reveal-bottom">
+              <div class="honor-header">
+                  <div class="honor-logo">
+                      <img src="Images/TUFC.png" alt="Thornhill United Football Club Logo">
+                  </div>
+                  <div class="honor-title">
+                      <h3>Player of the Year U14</h3>
+                      <div class="honor-issuer">Issued by Thornhill United Football Club</div>
+                      <div class="honor-date">Oct 2016</div>
+                  </div>
+              </div>
+              <div class="honor-content">
+                  <p>I was awarded with the "Player of the Year" award by Thornhill United for the Under 14 category.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!--
+ Contact Section --
+<section id="contact" class="contact section-padding">
+  <div class="container">
+      <div class="section-header">
+          <h2 class="section-title">Get In Touch</h2>
+          <div class="section-line"></div>
+      </div>
+      <div class="contact-container">
+          <div class="contact-info reveal-left">
+              <h3>Contact Information</h3>
+              <p>Feel free to reach out to me for collaboration, opportunities, or just to say hello!</p>
+              <div class="info-items">
+                  <div class="info-item">
+                      <div class="info-icon">
+                          <i class="fas fa-envelope"></i>
+                      </div>
+                      <div class="info-content">
+                          <h4>Email</h4>
+                          <p>mohamedasad11914@gmail.com</p>
+                      </div>
+                  </div>
+                  
+                  <div class="info-item">
+                      <div class="info-icon">
+                          <i class="fas fa-map-marker-alt"></i>
+                      </div>
+                      <div class="info-content">
+                          <h4>Location</h4>
+                          <p>Cape Town, South Africa</p>
+                      </div>
+                  </div>
+              </div>
+              
+          </div>
+
+          <div id="formAlert" class="form-alert" style="display: none;">
+            Your message has been sent successfully! ✅
+        </div>
+          <div class="contact-form reveal-right">
+            <form id="contactForm" action="https://formsubmit.co/mohamedasad11914@gmail.com" method="POST">
+                <!-- FormSubmit configuration --
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://mohamedasad10.github.io/portfolioWebsite/">
+                <input type="text" name="_honey" style="display:none">
+                
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Name" required>
+                    <label for="name">Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                    <label for="subject">Subject</label>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder="Message" required></textarea>
+                    <label for="message">Message</label>
+                </div>
+                <button type="submit" class="btn primary-btn">Send Message</button>
+            </form>
+        </div>
+      </div>
+  </div>
+  <div class="contact-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+  </div>
+</section>
+-->
+<!-- Footer -->
+<footer>
+  <div class="container">
+      <div class="footer-content">
+          <div class="footer-logo">
+              <span class="highlight">M.Asad's Portfolio</span>
+          </div>
+          <p>Computer Science Honours Student | Aspiring Software Engineer</p>
+          <div class="footer-social">
+              <a href="https://github.com/mohamedasad10" class="social-icon" target="_blank"><i class="fab fa-github" ></i></a>
+              <a href="https://www.linkedin.com/in/mabandarkar/" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
+      </div>
+      <div class="footer-bottom">
+          <p>&copy; <span id="year"></span> My Portfolio. All rights reserved.</p>
+      </div>
+  </div>
+</footer>
+
+<!-- Back to Top Button -->
+<a href="#home" class="back-to-top">
+  <i class="fas fa-arrow-up"></i>
+</a>
+
+
+<!-- Modal Container(Pop-up) for ExtraCurricular Activities -->
+<div class="modal-container">
+<div class="modal">
+  <div class="modal-close">&times;</div>
+  <div class="modal-content">
+      <div class="modal-carousel">
+          <div class="carousel-container">
+              <!-- Images will be dynamically inserted here -->
+          </div>
+          <div class="carousel-indicators">
+              <!-- Indicators will be dynamically inserted here -->
+          </div>
+      </div>
+      <div class="modal-info">
+          <h2 class="modal-title">Event Title</h2>
+          <h3 class="modal-organization">Organization</h3>
+          <div class="modal-date">Date</div>
+          <div class="modal-description">
+              <!-- Description will be dynamically inserted here -->
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+
+
+
+<!-- JavaScript -->
+<script src="script.js"></script>
+</body>
+</html>
